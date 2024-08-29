@@ -1,0 +1,14 @@
+-Coroutine
+-suspend function 
+-launch
+-async
+-returning single object vs returning single value
+-returning data through streams
+-returning frequent update of the data
+-suspend functions return single value of the data
+-for stream: channels(send and receive)(Hot);  flows(emit and collect)(Cold)
+-Hot channels: Producers keep posting data even if no consumer (data loss can happen)
+-Cold flows: Producers don't start posting data, if no consumer (data loss won't happen)
+-Hot streams has to be closed manually
+-problem when producer is faster than consumer
+- problem when consumer is faster than producer 
