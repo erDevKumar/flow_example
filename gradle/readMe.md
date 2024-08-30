@@ -11,4 +11,9 @@
 -Cold flows: Producers don't start posting data, if no consumer (data loss won't happen)
 -Hot streams has to be closed manually
 -problem when producer is faster than consumer
-- problem when consumer is faster than producer 
+-problem when consumer is faster than producer 
+-cold flow: if all consumer removed, flow will be cancelled as well
+ -flow operator: map,filter,buffer(before collection)
+-withContext to change thread won't work(flowOn)
+-exception handling on produce side:(catch)
+-shared flow v/s state flow

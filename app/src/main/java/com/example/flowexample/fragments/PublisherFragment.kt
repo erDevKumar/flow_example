@@ -1,10 +1,10 @@
 package com.example.flowexample.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -31,12 +31,22 @@ class PublisherFragment : Fragment(){
 
 
     private suspend fun publishCold(){
-        viewModel.coldFlow.emit(binding.coldInput.text.toString())
+        Log.d("publishCold",binding.coldInput.text.toString())
+        viewModel.publishCold(binding.coldInput.text.toString())
+    }
+
+
+    private suspend fun publishHot(){
+        Log.d("publishHot",binding.hotInput.text.toString())
+        viewModel.publishHot(binding.hotInput.text.toString())
     }
 
     private fun initClickListeners(){
         binding.coldPublish.setOnClickListener {
             lifecycleScope.launch { publishCold() }
+        }
+        binding.hotPublish.setOnClickListener {
+            lifecycleScope.launch { publishHot() }
         }
     }
 
